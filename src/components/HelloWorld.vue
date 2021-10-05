@@ -15,17 +15,21 @@
       </button>
     </div>
     <!-- <div style="width:100%;flex-grow: 1;"> -->
-    <div class="editor">
-      <textarea
-        style="width:100%;height:100%;box-sizing: border-box;"
-        v-model="source"
-        class="Inter"
-      >
-      </textarea>
-    </div>
+    <div class="grid gap-1 grid-cols-2">
+      <div class="editor">
+        <textarea
+          v-model="source"
+          class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none"
+          cols="50"
+          rows="10"
+          placeholder="# Enter some head line here ."
+        >
+        </textarea>
+      </div>
 
-    <div class="preview">
-      <Markdown :source="source" :plugins="plugins" />
+      <div class="preview">
+        <Markdown :source="source" :plugins="plugins" />
+      </div>
     </div>
   </div>
 </template>
@@ -36,22 +40,25 @@ const { dialog } = require("electron");
 const fs = require("fs");
 
 import Markdown from "vue3-markdown-it";
+import MarkdownItStrikethroughAlt from "markdown-it-strikethrough-alt";
 
 export default {
   name: "HelloWorld",
-  props: {
-    msg: String,
-  },
   components: {
     Markdown,
   },
-  data: function() {
+  data() {
     return {
       source: "",
+      plugins: [
+        {
+          plugin: MarkdownItStrikethroughAlt,
+        },
+      ],
     };
   },
   methods: {
-    open: function() {
+    open() {
       const options = {
         title: "File Open",
         filters: [
@@ -67,7 +74,7 @@ export default {
         this.text = fs.readFileSync(result[0]);
       }
     },
-    save: function() {
+    save() {
       const options = {
         title: "File Save",
         filters: [{ name: "Documents", extensions: ["txt"] }],
