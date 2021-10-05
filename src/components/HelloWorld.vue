@@ -15,6 +15,7 @@
 </template>
 
 <script>
+// remote moduleはElectron 10.0.0からデフォルトで無効化された模様
 const { dialog } = require("electron");
 const fs = require("fs");
 
