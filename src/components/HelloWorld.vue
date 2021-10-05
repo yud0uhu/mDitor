@@ -14,13 +14,18 @@
         File Save
       </button>
     </div>
-    <div style="width:100%;flex-grow: 1;">
+    <!-- <div style="width:100%;flex-grow: 1;"> -->
+    <div class="editor">
       <textarea
         style="width:100%;height:100%;box-sizing: border-box;"
-        v-model="text"
+        v-model="source"
         class="Inter"
       >
       </textarea>
+    </div>
+
+    <div class="preview">
+      <Markdown :source="source" :plugins="plugins" />
     </div>
   </div>
 </template>
@@ -30,14 +35,19 @@
 const { dialog } = require("electron");
 const fs = require("fs");
 
+import Markdown from "vue3-markdown-it";
+
 export default {
   name: "HelloWorld",
   props: {
     msg: String,
   },
+  components: {
+    Markdown,
+  },
   data: function() {
     return {
-      text: "",
+      source: "",
     };
   },
   methods: {
