@@ -19,7 +19,7 @@
       <div class="editor">
         <textarea
           v-model="source"
-          class="bg-gray-900 text-white w-full px-3 py-2 border focus:outline-none shadow-md"
+          class="bg-gray-900 text-white w-full px-3 py-2 border focus:outline-none shadow-md h-screen"
           cols="50"
           rows="10"
           placeholder="# Enter some head line here ."
@@ -32,7 +32,7 @@
           :source="source"
           :plugins="pluguin"
           class="w-full px-3 py-2
-        border focus:outline-none shadow-md"
+        border focus:outline-none shadow-md h-screen"
         />
       </div>
     </div>
