@@ -19,7 +19,7 @@
       <div class="editor">
         <textarea
           v-model="source"
-          class="w-full px-3 py-2 border focus:outline-none shadow-md"
+          class="bg-gray-900 text-white w-full px-3 py-2 border focus:outline-none shadow-md"
           cols="50"
           rows="10"
           placeholder="# Enter some head line here ."
@@ -47,6 +47,7 @@ const fs = require("fs");
 import Markdown from "vue3-markdown-it";
 import HighLightJs from "highlight.js/styles/dracula.css";
 import MarkdownItStrikethroughAlt from "markdown-it-strikethrough-alt";
+import MarkdownItAnchor from "markdown-it-anchor";
 
 export default {
   name: "HelloWorld",
@@ -60,6 +61,7 @@ export default {
         {
           plugin: MarkdownItStrikethroughAlt,
           HighLightJs,
+          MarkdownItAnchor,
         },
       ],
     };
