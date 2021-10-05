@@ -2,7 +2,7 @@
   <div style="height:100%;display:flex; flex-direction: column;">
     <div style="display:flex">
       <button @click="open">File Open</button>
-      <button>File Save</button>
+      <button @click="save">File Save</button>
     </div>
     <div style="width:100%;flex-grow: 1;">
       <textarea
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-const { dialog } = require("electron").remote;
+const { dialog } = require("electron");
 const fs = require("fs");
 
 export default {
@@ -29,16 +29,6 @@ export default {
     };
   },
   methods: {
-    save: function() {
-      const options = {
-        title: "File Opne",
-        filters: [{ name: "Documents", extentions: ["txt"] }],
-      };
-      const result = dialog.showSaveDialogSync(options);
-      if (result) {
-        fs.writeFileSync(result, this.text);
-      }
-    },
     open: function() {
       const options = {
         title: "File Open",
@@ -46,13 +36,23 @@ export default {
           {
             name: "Documents",
             multiSelections: false,
-            extentions: ["txt", "*"],
+            extensions: ["txt", "*"],
           },
         ],
       };
       const result = dialog.showOpenDialogSync(options);
       if (result.length) {
         this.text = fs.readFileSync(result[0]);
+      }
+    },
+    save: function() {
+      const options = {
+        title: "File Save",
+        filters: [{ name: "Documents", extensions: ["txt"] }],
+      };
+      const result = dialog.showSaveDialogSync(options);
+      if (result) {
+        fs.writeFileSync(result, this.text);
       }
     },
   },
