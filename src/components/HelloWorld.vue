@@ -47,7 +47,6 @@ const fs = require("fs");
 import Markdown from "vue3-markdown-it";
 import HighLightJs from "highlight.js/styles/dracula.css";
 import MarkdownItStrikethroughAlt from "markdown-it-strikethrough-alt";
-import MarkdownItAnchor from "markdown-it-anchor";
 
 export default {
   name: "HelloWorld",
@@ -61,7 +60,6 @@ export default {
         {
           plugin: MarkdownItStrikethroughAlt,
           HighLightJs,
-          MarkdownItAnchor,
         },
       ],
     };
