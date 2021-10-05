@@ -1,4 +1,12 @@
 # markdown-memo-app
+## Module
+### vue3-markdown-it
+https://github.com/JanGuillermo/vue3-markdown-it
+
+### highlight.js
+https://highlightjs.org/  
+- [デモ](https://highlightjs.org/static/demo/)
+
 ## Sample
 ![preview](https://user-images.githubusercontent.com/60646787/136066560-09f76f5d-7403-4624-bd9e-af0fbcccd5f4.png)
 
