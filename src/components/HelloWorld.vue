@@ -1,13 +1,24 @@
 <template>
   <div style="height:100%;display:flex; flex-direction: column;">
     <div style="display:flex">
-      <button @click="open">File Open</button>
-      <button @click="save">File Save</button>
+      <button
+        @click="open"
+        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4"
+      >
+        File Open
+      </button>
+      <button
+        @click="save"
+        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4"
+      >
+        File Save
+      </button>
     </div>
     <div style="width:100%;flex-grow: 1;">
       <textarea
         style="width:100%;height:100%;box-sizing: border-box;"
         v-model="text"
+        class="Inter"
       >
       </textarea>
     </div>
