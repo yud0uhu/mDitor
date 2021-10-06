@@ -40,8 +40,10 @@
 </template>
 
 <script>
-// remote moduleはElectron 10.0.0からデフォルトで無効化された模様
-const { dialog } = require("electron");
+// レンダラプロセスからNode.jsで動くメインプロセス側の処理を呼び出したい(OSネイティブのAPIを使いたい)場合、remoteで呼び出す必要がある
+// セキュリティの問題から、remote moduleはElectron 10.0.0からデフォルトで無効化された
+const { dialog } = require("electron").remote;
+
 const fs = require("fs");
 
 import Markdown from "vue3-markdown-it";
@@ -49,7 +51,7 @@ import HighLightJs from "highlight.js/styles/dracula.css";
 import MarkdownItStrikethroughAlt from "markdown-it-strikethrough-alt";
 
 export default {
-  name: "HelloWorld",
+  name: "Editor",
   components: {
     Markdown,
   },
@@ -72,23 +74,27 @@ export default {
           {
             name: "Documents",
             multiSelections: false,
-            extensions: ["txt", "*"],
+            extensions: ["*"],
           },
         ],
       };
       const result = dialog.showOpenDialogSync(options);
-      if (result.length) {
+      // Returns String[] | undefined
+      if (result != undefined) {
         this.text = fs.readFileSync(result[0]);
       }
     },
     save() {
       const options = {
         title: "File Save",
-        filters: [{ name: "Documents", extensions: ["txt"] }],
+        filters: [
+          { name: "Documents", multiSelections: false, extensions: ["*"] },
+        ],
       };
       const result = dialog.showSaveDialogSync(options);
-      if (result) {
-        fs.writeFileSync(result, this.text);
+      // Returns String[] | undefined
+      if (result != undefined) {
+        this.text = fs.readFileSync(result[0]);
       }
     },
   },
