@@ -1,25 +1,26 @@
 <template>
   <div style="height:100%;display:flex; flex-direction: column;">
-    <div style="display:flex">
-      <button
-        @click="open"
-        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4"
-      >
-        File Open
-      </button>
-      <button
-        @click="save"
-        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4"
-      >
-        File Save
-      </button>
-    </div>
-    <!-- <div style="width:100%;flex-grow: 1;"> -->
+    <nav class="bg-gray-100">
+      <div class="flex flex-row-reverse space-x-reverse">
+        <button
+          @click="open"
+          class="font-body shadow-md inline-flex items-center justify-center px-5 py-3 border border-transparent text-base rounded-md text-white bg-green-500 hover:bg-green-600"
+        >
+          file open
+        </button>
+        <button
+          @click="save"
+          class="font-body shadow-md inline-flex items-center justify-center px-5 py-3 border border-transparent text-base rounded-md text-green-500 bg-white hover:bg-green-50"
+        >
+          file save
+        </button>
+      </div>
+    </nav>
     <div class="grid gap-1 grid-cols-2">
       <div class="editor">
         <textarea
           v-model="source"
-          class="bg-gray-900 text-white w-full px-3 py-2 border focus:outline-none shadow-md h-screen"
+          class="font-body shadow-inner bg-gray-900 text-white w-full px-3 py-2 border focus:outline-none shadow-2xl h-screen"
           cols="50"
           rows="10"
           placeholder="# Enter some head line here ."
@@ -31,8 +32,8 @@
         <Markdown
           :source="source"
           :plugins="pluguin"
-          class="w-full px-3 py-2
-        border focus:outline-none shadow-md h-screen"
+          class="font-body shadow-inner w-full px-3 py-2
+        border focus:outline-none shadow-2xl h-screen"
         />
       </div>
     </div>
@@ -42,6 +43,7 @@
 <script>
 // レンダラプロセスからNode.jsで動くメインプロセス側の処理を呼び出したい(OSネイティブのAPIを使いたい)場合、remoteで呼び出す必要がある
 // セキュリティの問題から、remote moduleはElectron 10.0.0からデフォルトで無効化された
+// https://www.npmjs.com/package/@electron/remote 為替ライブラリ？nodeIntegrationのみtrueの状態で検証したい。
 const { dialog } = require("electron").remote;
 
 const fs = require("fs");
