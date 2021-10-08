@@ -8,7 +8,7 @@ https://highlightjs.org/
 - [デモ](https://highlightjs.org/static/demo/)
 
 ## Sample
-![preview](https://github.com/yud0uhu/vue3-electron-app/blob/main/markdown-editor.png)
+![preview](https://raw.githubusercontent.com/yud0uhu/vue3-electron-app/main/markdown-editor.png)
 
 ## Tips
 https://zenn.dev/denham/scraps/f98df08b8fdb75
