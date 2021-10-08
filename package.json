@@ -16,6 +16,7 @@
     "autoprefixer": "^9.8.8",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
+    "electron-store": "^8.0.1",
     "postcss": "^7.0.39",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.16",
     "vue": "^3.0.0",

@@ -52,6 +52,10 @@ import Markdown from "vue3-markdown-it";
 import HighLightJs from "highlight.js/styles/dracula.css";
 import MarkdownItStrikethroughAlt from "markdown-it-strikethrough-alt";
 
+const Store = require("electron-store");
+
+const store = new Store();
+
 export default {
   name: "Editor",
   components: {
@@ -101,6 +105,16 @@ export default {
     },
   },
 };
+
+store.set({
+  foo: {
+    bar: {
+      foobar: "🦄",
+    },
+  },
+});
+
+console.log(store.get("foo.bar.foobar"));
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
