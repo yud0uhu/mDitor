@@ -85,7 +85,7 @@
     </nav>
 
     <div class="grid gap-1 grid-cols-2">
-      <div class="editor" v-if="isVisibleEditor">
+      <div class="editor" v-show="isVisibleEditor">
         <textarea
           v-model="source"
           class="font-body shadow-inner bg-gray-900 text-white w-full px-3 py-2 border focus:outline-none shadow-2xl h-screen"
@@ -96,7 +96,7 @@
         </textarea>
       </div>
 
-      <div class="preview" v-if="isVisiblePreview">
+      <div class="preview" v-show="isVisiblePreview">
         <Markdown
           :source="source"
           :plugins="plugins"
