@@ -4,18 +4,21 @@
       <div class="flex flex-row-reverse space-x-reverse">
         <button
           @click="open"
+          data-hotkey="Control o"
           class="font-body shadow-md inline-flex items-center justify-center px-5 py-3 border border-transparent text-base rounded-md text-white bg-green-500 hover:bg-green-600"
         >
           file open
         </button>
         <button
           @click="save"
+          data-hotkey="Control s"
           class="font-body shadow-md inline-flex items-center justify-center px-5 py-3 border border-transparent text-base rounded-md text-green-500 bg-white hover:bg-green-50"
         >
           file save
         </button>
       </div>
     </nav>
+
     <div class="grid gap-1 grid-cols-2">
       <div class="editor">
         <textarea
@@ -55,6 +58,7 @@ import MarkdownItStrikethroughAlt from "markdown-it-strikethrough-alt";
 const Store = require("electron-store");
 
 const store = new Store();
+import { install } from "@github/hotkey";
 
 export default {
   name: "Editor",
@@ -103,6 +107,11 @@ export default {
         this.text = fs.readFileSync(result[0]);
       }
     },
+  },
+  mounted: function() {
+    for (const el of document.querySelectorAll("[data-hotkey]")) {
+      install(el);
+    }
   },
 };
 
