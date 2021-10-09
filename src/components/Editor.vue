@@ -87,7 +87,7 @@
     <div class="grid gap-1 grid-cols-2">
       <div class="editor" v-if="isVisibleEditor">
         <textarea
-          :source="source"
+          v-model="source"
           class="font-body shadow-inner bg-gray-900 text-white w-full px-3 py-2 border focus:outline-none shadow-2xl h-screen"
           cols="50"
           rows="10"
@@ -123,12 +123,6 @@ import MarkdownItStrikethroughAlt from "markdown-it-strikethrough-alt";
 const Store = require("electron-store");
 const store = new Store({});
 
-// const store = new Store({
-//   cwd: app.getPath(process.cwd()),
-//   name: "config",
-//   fileExtention: "json",
-// });
-
 import { install } from "@github/hotkey";
 
 export default {
@@ -138,9 +132,9 @@ export default {
   },
   data() {
     return {
+      source: "",
       isVisibleEditor: true,
       isVisiblePreview: true,
-      source: "",
       plugins: [
         {
           plugin: MarkdownItStrikethroughAlt,
