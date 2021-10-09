@@ -99,7 +99,7 @@
       <div class="preview" v-show="isVisiblePreview">
         <Markdown
           :source="source"
-          :plugins="pluguin"
+          :plugins="plugins"
           class="font-body shadow-inner w-full px-3 py-2
         border focus:outline-none shadow-2xl h-screen"
         />
