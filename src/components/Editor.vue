@@ -83,27 +83,49 @@
         </button>
       </div>
     </nav>
-
-    <div class="grid gap-1 grid-cols-2">
-      <div class="editor" v-show="isVisibleEditor">
-        <textarea
-          v-model="source"
-          class="font-body shadow-inner bg-gray-900 text-white w-full px-3 py-2 border focus:outline-none shadow-2xl h-screen"
-          cols="50"
-          rows="10"
-          placeholder="# Enter some head line here ."
-        >
-        </textarea>
+    <div>
+      <div
+        class="grid gap-1 grid-cols-2"
+        v-show="isVisibleEditor && isVisiblePreview"
+      >
+        <div class="editor">
+          <textarea
+            v-model="source"
+            class="font-body shadow-inner bg-gray-900 text-white px-3 py-2 border focus:outline-none shadow-2xl w-full h-screen"
+            cols="50"
+            rows="10"
+            placeholder="# Enter some head line here ."
+          >
+          </textarea>
+        </div>
+        <div class="preview">
+          <Markdown
+            :source="source"
+            :plugins="plugins"
+            class="font-body shadow-inner px-3 py-2
+        border focus:outline-none shadow-2xl w-full h-screen"
+          />
+        </div>
       </div>
+    </div>
+    <div class="editor" v-show="!isVisibleEditor">
+      <textarea
+        v-model="source"
+        class="font-body shadow-inner bg-gray-900 text-white px-3 py-2 border focus:outline-none shadow-2xl w-full h-screen"
+        cols="50"
+        rows="10"
+        placeholder="# Enter some head line here ."
+      >
+      </textarea>
+    </div>
 
-      <div class="preview" v-show="isVisiblePreview">
-        <Markdown
-          :source="source"
-          :plugins="plugins"
-          class="font-body shadow-inner w-full px-3 py-2
-        border focus:outline-none shadow-2xl h-screen"
-        />
-      </div>
+    <div class="preview" v-show="!isVisiblePreview">
+      <Markdown
+        :source="source"
+        :plugins="plugins"
+        class="font-body shadow-inner px-3 py-2
+        border focus:outline-none shadow-2xl w-full h-screen"
+      />
     </div>
   </div>
 </template>
