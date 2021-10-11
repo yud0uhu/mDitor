@@ -1,10 +1,8 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import "./index.css";
 import Markdown from "vue3-markdown-it";
+import "./index.css";
 
-const app = createApp();
-
-app.use(Markdown);
-
-createApp(App).mount("#app");
+createApp(App)
+  .use(Markdown)
+  .mount("#app");

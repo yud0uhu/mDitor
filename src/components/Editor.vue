@@ -41,6 +41,7 @@
             />
           </svg>
         </button>
+
         <button
           class="border-solid border-2 rounded-md shadow-md text-center px-2 py-2 hover:bg-gray-50"
         >
@@ -65,7 +66,19 @@
             />
           </svg>
         </button>
+
+        <button onclick="location.href='https://calendar.google.com/'">
+          Google Calendar
+        </button>
       </div>
+      <button
+        class="flex-shrink-0 border-transparent border-4 text-teal-500 hover:text-teal-800 text-sm py-1 px-2 rounded"
+        type="button"
+        @click="clearTextarea()"
+      >
+        Clear
+      </button>
+
       <div class="flex justify-end">
         <button
           @click="open"
@@ -203,6 +216,9 @@ export default {
     previewMode: function() {
       this.isVisiblePreview = !this.isVisiblePreview;
       console.log("false");
+    },
+    clearTextarea() {
+      this.source = "";
     },
   },
   // mounted は永続されたデータがあればそれを読み込む

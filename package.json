@@ -13,28 +13,39 @@
   },
   "main": "background.js",
   "dependencies": {
+    "@types/gapi": "^0.0.41",
+    "@types/gapi.auth2": "^0.0.55",
+    "@types/gapi.calendar": "^3.0.6",
+    "@vue/composition-api": "^1.2.4",
     "autoprefixer": "^9.8.8",
     "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
     "electron-store": "^8.0.1",
+    "googleapis": "^88.2.0",
     "postcss": "^7.0.39",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.16",
     "vue": "^3.0.0",
+    "vue-class-component": "^8.0.0-0",
     "vue3-markdown-it": "^1.0.9"
   },
   "devDependencies": {
     "@electron/remote": "^2.0.1",
     "@github/hotkey": "^1.6.0",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
     "babel-eslint": "^10.1.0",
     "electron": "^13.0.0",
     "electron-devtools-installer": "^3.1.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^7.0.0",
     "markdown-it-strikethrough-alt": "^1.0.0",
+    "typescript": "~4.1.5",
     "vue-cli-plugin-electron-builder": "~2.1.1"
   },
   "eslintConfig": {
@@ -44,10 +55,11 @@
     },
     "extends": [
       "plugin:vue/vue3-essential",
-      "eslint:recommended"
+      "eslint:recommended",
+      "@vue/typescript"
     ],
     "parserOptions": {
-      "parser": "babel-eslint"
+      "parser": "@typescript-eslint/parser"
     },
     "rules": {}
   },
