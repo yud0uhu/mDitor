@@ -205,20 +205,33 @@ export default {
       console.log("false");
     },
   },
+  // mounted は永続されたデータがあればそれを読み込む
   mounted: function() {
     for (const el of document.querySelectorAll("[data-hotkey]")) {
       install(el);
     }
+    if (localStorage.source) {
+      this.source = localStorage.source;
+      console.log("mounted:" + this.source);
+    }
+  },
+  watch: {
+    source(newSource) {
+      localStorage.source = newSource;
+      console.log("watcher:" + localStorage.source);
+    },
   },
 };
 
-store.set({
-  foo: {
-    bar: {
-      foobar: "🦄",
-    },
-  },
-});
+// メインプロセス側でデータを永続化したい
+// store.set({
+//   foo: {
+//     bar: {
+//       foobar: "🦄",
+//     },
+//   },
+// });
+// store.delete("foo.bar.foobar");
 
 console.log(store.get("foo.bar.foobar"));
 </script>
