@@ -1,17 +1,15 @@
 <template>
-  <Calender />
+  <Editor />
 </template>
 
-<script lang="ts">
-import { Options, Vue } from "vue-class-component";
-import Calender from "./components/Calendar.vue";
-
-@Options({
+<script>
+import Editor from "./components/Editor.vue";
+export default {
+  name: "App",
   components: {
-    Calender,
+    Editor,
   },
-})
-export default class App extends Vue {}
+};
 </script>
 
 <style>
