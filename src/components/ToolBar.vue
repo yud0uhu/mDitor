@@ -130,11 +130,7 @@ export default {
       );
     },
     InsertImage() {
-      this.$emit(
-        "insert",
-        "\n" +
-          "![alt](http://www.mocchiblog.com/wp-content/images/2014/03/github-logo.jpg)"
-      );
+      this.$emit("insert", "\n" + "![alt](https://)");
     },
     InsertLink() {
       this.$emit("insert", "\n" + "[](https://)");
