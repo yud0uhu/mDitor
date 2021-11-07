@@ -232,6 +232,7 @@ export default {
       this.isVisiblePreview = !this.isVisiblePreview;
       console.log("false");
     },
+  },
   // mounted は永続されたデータがあればそれを読み込む
   mounted: function() {
     for (const el of document.querySelectorAll("[data-hotkey]")) {
