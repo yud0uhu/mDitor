@@ -194,14 +194,13 @@ export default {
     };
   },
   methods: {
-    open() {
+    open: function() {
       const options = {
         title: "File Open",
         filters: [
           {
-            name: "Documents",
-            multiSelections: false,
-            extensions: ["*"],
+            name: "Text",
+            extensions: ["txt"],
           },
         ],
       };
@@ -211,17 +210,15 @@ export default {
         this.text = fs.readFileSync(result[0]);
       }
     },
-    save() {
+    save: function() {
       const options = {
-        title: "File Save",
-        filters: [
-          { name: "Documents", multiSelections: false, extensions: ["*"] },
-        ],
+        title: "File Open",
+        filters: [{ name: "Text", extensions: ["txt", "*"] }],
       };
       const result = dialog.showSaveDialogSync(options);
-      // Returns String[] | undefined
-      if (result != undefined) {
-        this.text = fs.readFileSync(result[0]);
+      if (result) {
+        // 第一引数にfilenameかdescriptorを渡し、第二引数に書き込みたい情報(dataあるいはoptions)を渡す.
+        fs.writeFileSync(result, this.source);
       }
     },
     editorMode: function() {
