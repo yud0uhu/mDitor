@@ -14,7 +14,7 @@
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps"
   },
-  "main": "background.ts",
+  "main": "background.js",
   "dependencies": {
     "@vue/composition-api": "^1.2.4",
     "autoprefixer": "^9.8.8",
