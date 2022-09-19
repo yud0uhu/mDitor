@@ -68,17 +68,6 @@
     "last 2 versions",
     "not dead"
   ],
-  "builderOptions": {
-    "appId": "mDitor",
-    "mac": {
-      "target": "dmg",
-      "icon": "assets/icon_512.png"
-    },
-    "win": {
-      "target": "nsis",
-      "icon": "assets/icon.png"
-    }
-  },
   "volta": {
     "node": "16.17.0",
     "yarn": "1.22.19"
