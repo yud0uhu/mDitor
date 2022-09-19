@@ -24,7 +24,8 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "src/main.js"
+    "src/main.js",
+    "src/background.js"
   ],
   "exclude": ["node_modules"]
 }
