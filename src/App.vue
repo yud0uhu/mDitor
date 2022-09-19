@@ -1,7 +1,5 @@
 <template>
-
   <Editor />
-
 </template>
 
 <script>
@@ -29,4 +27,3 @@ body {
   padding: 0px;
 }
 </style>
-
