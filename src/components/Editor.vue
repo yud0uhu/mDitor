@@ -93,7 +93,7 @@
         <div class="flex justify-end">
           <button
             @click="open"
-            data-hotkey="Control o"
+            data-hotkey="g o"
             class="font-body shadow-md inline-flex items-center justify-center px-5 py-3 border border-transparent text-base rounded-md text-white bg-green-500 hover:bg-green-600"
           >
             file open
@@ -101,7 +101,7 @@
 
           <button
             @click="save"
-            data-hotkey="Control s"
+            data-hotkey="g s"
             class="font-body shadow-md inline-flex items-center justify-center px-5 py-3 border border-transparent text-base rounded-md text-green-500 bg-white hover:bg-green-50"
           >
             file save
@@ -172,9 +172,6 @@ import HighLightJs from "highlight.js/styles/dracula.css";
 import MarkdownItStrikethroughAlt from "markdown-it-strikethrough-alt";
 import ToolBar from "../components/ToolBar.vue";
 
-// const Store = require("electron-store");
-// const store = new Store({});
-
 import { install } from "@github/hotkey";
 
 export default {
@@ -229,7 +226,6 @@ export default {
     },
     previewMode: function () {
       this.isVisiblePreview = !this.isVisiblePreview;
-      // console.log("false");
     },
   },
   // mounted は永続されたデータがあればそれを読み込む
@@ -239,28 +235,14 @@ export default {
     }
     if (localStorage.source) {
       this.source = localStorage.source;
-      // console.log("mounted:" + this.source);
     }
   },
   watch: {
     source(newSource) {
       localStorage.source = newSource;
-      // console.log("watcher:" + localStorage.source);
     },
   },
 };
-
-// メインプロセス側でデータを永続化したい
-// store.set({
-//   foo: {
-//     bar: {
-//       foobar: "🦄",
-//     },
-//   },
-// });
-// store.delete("foo.bar.foobar");
-
-// console.log(store.get("foo.bar.foobar"));
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
