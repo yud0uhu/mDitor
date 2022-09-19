@@ -210,7 +210,7 @@ export default {
       const result = dialog.showOpenDialogSync(options);
       // Returns String[] | undefined
       if (result != undefined) {
-        this.text = fs.readFileSync(result[0]);
+        this.source = fs.readFileSync(result[0], { encoding: "utf8" });
       }
     },
     save: function () {
