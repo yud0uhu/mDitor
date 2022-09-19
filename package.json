@@ -1,8 +1,21 @@
 {
-  "name": "markdown-memo-app",
+  "name": "m-ditor",
   "version": "0.1.0",
   "private": true,
+  "build": {
+    "appId": "mDitor",
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon_512.png"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.png"
+    }
+  },
   "scripts": {
+    "app:dir": "electron-builder --dir",
+    "app:dist": "electron-builder",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
@@ -11,7 +24,7 @@
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps"
   },
-  "main": "background.js",
+  "main": "background.ts",
   "dependencies": {
     "@vue/composition-api": "^1.2.4",
     "autoprefixer": "^9.8.8",
@@ -37,6 +50,7 @@
     "@vue/eslint-config-typescript": "^7.0.0",
     "babel-eslint": "^10.1.0",
     "electron": "^13.0.0",
+    "electron-builder": "^23.3.3",
     "electron-devtools-installer": "^3.1.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^7.0.0",
