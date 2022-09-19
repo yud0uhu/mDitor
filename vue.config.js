@@ -10,7 +10,7 @@ module.exports = {
         },
         win: {
           target: "nsis",
-          icon: "assets/icon.png",
+          icon: "assets/icon_256.png",
         },
       },
     },
