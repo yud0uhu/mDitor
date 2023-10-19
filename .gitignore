@@ -22,5 +22,5 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-#Electron-builder output
-/dist_electron
+#electron-forge output
+out

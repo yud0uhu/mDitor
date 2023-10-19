@@ -12,6 +12,10 @@ module.exports = {
           target: "nsis",
           icon: "assets/icon_256.png",
         },
+        linux: {
+          target: "deb",
+          icon: "assets/icon_256.png",
+        },
       },
     },
   },
